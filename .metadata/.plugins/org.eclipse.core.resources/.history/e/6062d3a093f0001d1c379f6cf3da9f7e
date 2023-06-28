@@ -1,0 +1,95 @@
+package com.moviebookingapp.movieservice.service;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import javax.persistence.EntityNotFoundException;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.moviebookingapp.movieservice.model.Movie;
+import com.moviebookingapp.movieservice.model.MovieStatus;
+import com.moviebookingapp.movieservice.repository.MovieRepository;
+
+@SpringBootTest
+public class MovieServiceImplTest {
+
+	@InjectMocks
+	private MovieServiceImpl movieService;
+
+	@Mock
+	private MovieRepository movieRepo;
+
+	@Test
+	public void Test_GetAllMovies_Success() {
+
+		Movie movie = new Movie();
+		movie.setMovieId(1);
+		movie.setMovieName("Titanic");
+		movie.setTheaterName("Inox");
+		movie.setTotalAvailableSeats(120);
+		movie.setTotalBookedSeats(20);
+		movie.setTotalAvailableSeats(100);
+		movie.setMovieStatus(MovieStatus.BOOK_ASAP);
+		movie.setTickets(new ArrayList<>());
+
+		List<Movie> expected = new ArrayList<Movie>();
+		expected.add(movie);
+
+		when(movieRepo.findAll()).thenReturn(expected);
+
+		List<Movie> actual = movieService.getAllMovies();
+		assertEquals(expected, actual);
+		verify(movieRepo).findAll();
+	}
+
+	@Test
+	public void Test_GetAllMovies_Empty() {
+		when(movieRepo.findAll()).thenReturn(new ArrayList());
+		assertThrows(EntityNotFoundException.class,()-> movieService.getAllMovies());	
+	}
+
+	@Test
+	public void Test_GetMovieById_Success() {
+		Movie movie = new Movie();
+		movie.setMovieId(1);
+		movie.setMovieName("Titanic");
+		movie.setTheaterName("Inox");
+		movie.setTotalAvailableSeats(120);
+		movie.setTotalBookedSeats(20);
+		movie.setTotalAvailableSeats(100);
+		movie.setMovieStatus(MovieStatus.BOOK_ASAP);
+		movie.setTickets(new ArrayList<>());
+
+		when(movieRepo.findById(movie.getMovieId())).thenReturn(Optional.of(movie));
+
+		Movie actualResult = movieService.getMovieById(movie.getMovieId());
+
+		assertEquals(movie, actualResult);
+		verify(movieRepo, times(1)).findById(movie.getMovieId());
+	}
+
+	@Test
+	public void Test_GetMovieById_Invalid_Id() {
+		when(movieRepo.findById(2)).thenReturn(Optional.empty());
+		assertThrows(EntityNotFoundException.class,()->movieService.getMovieById(2));	
+		verify(movieRepo, times(1)).findById(2);
+	}
+	
+	@Test
+	public void Test_GetMovieById_Null_Id() {
+		assertThrows(IllegalArgumentException.class,()->movieService.getMovieById(null));
+		verify(movieRepo, times(0)).findById(null);
+	}
+}

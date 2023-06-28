@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ConsumerServiceImpl.java&apos; to &apos;authentication/src/main/java/com.auth.authentication.service&apos;&#x0D;&#x0A;- Original project: &apos;authentication-service&apos;&#x0D;&#x0A;- Destination element: &apos;authentication/src/main/java/com.auth.authentication.service&apos;&#x0D;&#x0A;- Original element: &apos;com.authentication.auth.Service.ConsumerServiceImpl.java&apos;" description="Copy compilation unit" destination="=authentication/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.auth.authentication.service" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.authentication.auth.Service{ConsumerServiceImpl.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1684918894713" units="1" version="1.0"/>
+</session>

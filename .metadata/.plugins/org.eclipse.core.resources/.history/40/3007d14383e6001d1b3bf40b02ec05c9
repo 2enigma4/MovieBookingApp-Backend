@@ -1,0 +1,16 @@
+package com.moviebookingapp.movieservice.service;
+
+import java.util.List;
+import java.util.Optional;
+
+
+import com.moviebookingapp.movieservice.exceptions.DuplicateEntityFoundException;
+import com.moviebookingapp.movieservice.model.Movie;
+
+public interface MovieService {
+
+	public List<Movie> getAllMovies();
+	public Movie addMovie(Movie movie)throws DuplicateEntityFoundException;
+	public void deleteMovie(Integer movieId);
+	public Optional<Movie> getMovieById(Integer movieId); 
+}

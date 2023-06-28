@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=movie-service/C:\/Users\/Jain\/.m2\/repository\/jakarta\/persistence\/jakarta.persistence-api\/2.2.3\/jakarta.persistence-api-2.2.3.jar=/maven.pomderived=/true=/=/maven.groupId=/jakarta.persistence=/=/maven.artifactId=/jakarta.persistence-api=/=/maven.version=/2.2.3=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;javax.persistence(EntityNotFoundException.class[EntityNotFoundException" modifiers="33" timestamp="1667559704456"/>
+    <typeInfo handle="=movie-service/C:\/Users\/Jain\/.m2\/repository\/org\/springframework\/data\/spring-data-jpa\/2.7.11\/spring-data-jpa-2.7.11.jar=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-jpa=/=/maven.version=/2.7.11=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.springframework.data.jpa.repository(JpaRepository.class[JpaRepository" modifiers="1537" timestamp="1682495580139"/>
+</typeInfoHistroy>
